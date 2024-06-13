@@ -1,0 +1,24 @@
+.delete-dialog {
+    padding: 20px;
+    height: 100%;
+
+    .title {
+        font-weight: 600;
+        color: #43425D;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .description {
+        padding: 10px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+}

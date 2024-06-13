@@ -1,0 +1,12 @@
+<div class="delete-dialog">
+    <div class="title">
+        Delete Transaction
+    </div>
+    <div class="description">
+        Are you sure you want to delete this transaction ?
+    </div>
+    <div class="actions">
+        <app-progress-button (btnClick)="onClose()" varient="outlined" btnName="Cancel"> </app-progress-button>
+        <app-progress-button (btnClick)="onDelete()" btnName="Delete"> </app-progress-button>
+    </div>
+</div>

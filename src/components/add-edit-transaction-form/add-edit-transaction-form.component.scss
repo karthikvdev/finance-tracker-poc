@@ -1,0 +1,98 @@
+.transaction-form {
+    padding: 20px;
+    .transaction{
+        width: 100%;
+    }
+
+    .heading {
+        text-align: center;
+
+        h4 {
+            font-weight: 600;
+            color: #002379;
+        }
+    }
+
+    ::ng-deep {
+        .transaction-form-field {
+            width: 100%;
+            margin-bottom: 15px;
+
+            input {
+                &:read-only {
+                    background-color: #F5F5F5;
+                    cursor: not-allowed;
+                }
+            }
+
+        }
+
+        .disabled-mat-form-field {
+            .mat-form-field-wrapper {
+                .mat-form-field-flex {
+                    background-color: #F5F5F5;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+
+    .transaction-action-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    &-action-btn {
+        display: flex !important;
+        gap: 5%;
+
+
+        .outlined-btn {
+            ::ng-deep {
+                .outlined-btn {
+                    border: 1px solid #43425D;
+                    background-color: #fff;
+                    padding: 7px 10px;
+                    color: #43425D;
+                    border-radius: 5px;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        h4 {
+            font-weight: 500;
+            color: #43425D;
+        }
+
+    }
+
+    .sections {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    @media screen and (max-width: 950px) {
+        .sections {
+            flex-direction: column;
+        }
+    }
+}
+
+::ng-deep {
+    .mat-mdc-form-field {
+        .mat-mdc-form-field-error-wrapper {
+            padding: 0;
+        }
+    }
+}

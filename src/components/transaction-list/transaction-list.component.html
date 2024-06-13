@@ -1,0 +1,27 @@
+<div class="transaction-list">
+    <section>
+        <h1 class="heading">Finance Tracker App</h1>
+        <h2 class="sub-heading">Transaction List</h2>
+        <div class="add-transaction">
+            <div class="transction-details">
+                <div>
+                    <b>Total Expenditure: </b> <span
+                        [ngClass]="{'income': transactionInfo.total > 0, 'expenses': transactionInfo.total < 0} ">
+                        <ng-container *ngIf="transactionInfo.total > 0">+</ng-container>
+                        {{transactionInfo.total || 0 }} INR </span>
+                </div>
+                <div>
+                    <b>Total Income: </b> <span class=" income">{{ transactionInfo.income || 0 }} INR</span>
+                </div>
+                <div>
+                    <b>Total Expenses: </b> <span class="expenses">{{ transactionInfo.expenses || 0 }} INR</span>
+                </div>
+            </div>
+            <app-progress-button btnName="Add Transaction" (btnClick)="handleOnAddTransaction()"></app-progress-button>
+        </div>
+        <div class="transaction-list-container">
+            <app-transaction-card *ngFor="let transaction of transactions"
+                [transaction]="transaction"></app-transaction-card>
+        </div>
+    </section>
+</div>

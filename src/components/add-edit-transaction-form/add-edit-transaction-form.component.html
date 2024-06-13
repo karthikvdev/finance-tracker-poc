@@ -1,0 +1,99 @@
+<div>
+    <form [formGroup]="transactionForm" (ngSubmit)="save()" class="transaction-form">
+        <div class="heading">
+            <h4>Transaction Details</h4>
+        </div>
+        <div class="sections">
+            <div class="transaction">
+                <div class="title">
+                    <h4>Title</h4>
+                </div>
+                <mat-form-field class="form-field transaction-form-field" appearance="outline">
+                    <input matInput placeholder="Title" formControlName="title">
+                    <mat-error
+                        *ngIf="transactionForm?.get('title')?.touched && ( transactionForm?.get('title')?.hasError('required') || transactionForm?.get('title')?.hasError('pattern'))">
+                        Title is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="transaction">
+                <div class="title">
+                    <h4>Amount</h4>
+                </div>
+                <mat-form-field class="form-field transaction-form-field" appearance="outline">
+                    <input matInput placeholder="Amount" formControlName="amount" type="number">
+                    <mat-error
+                        *ngIf="transactionForm?.get('amount')?.touched && ( transactionForm?.get('amount')?.hasError('required') || transactionForm?.get('amount')?.hasError('pattern'))">
+                        Amount is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="transaction">
+            <div class="title">
+                <h4>Date</h4>
+            </div>
+            <mat-form-field class="form-field transaction-form-field" appearance="outline">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Date" formControlName="date" [max]="maxDate">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error
+                    *ngIf="transactionForm?.get('date')?.touched && (transactionForm.get('date')?.hasError('required') || transactionForm.get('date')?.hasError('pattern'))">
+                    Date is required.
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="sections">
+            <div class="transaction">
+                <div class="title">
+                    <h4>Category</h4>
+                </div>
+                <mat-form-field class="form-field transaction-form-field" appearance="outline" floatLabel="auto">
+                    <mat-select matNativeControl required formControlName="category">
+                        <mat-option *ngFor="let category of categories" [value]="category">
+                            {{category}}</mat-option>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="(transactionForm.get('category')?.touched) && transactionForm.get('category')?.hasError('required')">
+                        Category is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="transaction">
+                <div class="title">
+                    <h4>Transaction Type</h4>
+                </div>
+                <mat-form-field class="form-field transaction-form-field" appearance="outline" floatLabel="auto">
+                    <mat-select matNativeControl required formControlName="type">
+                        <mat-option *ngFor="let transactionType of transactionTypes" [value]="transactionType">
+                            {{transactionType}}</mat-option>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="(transactionForm.get('type')?.touched) && transactionForm.get('type')?.hasError('required')">
+                        Transaction type is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="transaction">
+            <div class="title">
+                <h4>Description</h4>
+            </div>
+            <mat-form-field class="form-field transaction-form-field" appearance="outline">
+                <textarea matInput placeholder="Address" formControlName="description"
+                    (keydown.control.enter)="save()"></textarea>
+                <mat-error
+                    *ngIf="(transactionForm.get('description')?.touched) && (transactionForm.get('description')?.hasError('required') || transactionForm.get('description')?.hasError('pattern'))">
+                    Description is required.
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="transaction-action-btn">
+            <app-progress-button type="button" varient="outlined" class="outlined-btn" [btnName]="cancelBtnName"
+                (btnClick)="cancelEdit()"></app-progress-button>
+            <app-progress-button type="submit" [btnName]="data ? 'Update': 'Save'"
+                [isLoading]="formLoading"></app-progress-button>
+        </div>
+    </form>
+</div>

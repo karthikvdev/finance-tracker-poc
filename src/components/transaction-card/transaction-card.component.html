@@ -1,0 +1,45 @@
+<details>
+    <summary>
+        <div>
+            <app-expenses-type-icon [transaction]="transaction"></app-expenses-type-icon>
+            <h3>
+                <strong>{{transaction.title}}</strong>
+                <small>{{transaction.category}}</small>
+            </h3>
+            <span
+                [ngClass]="{'expenses': transaction.type === EITransactionType.Expense, 'income':transaction.type === EITransactionType.Income }">{{transaction.type
+                === EITransactionType.Income ? '+ ' : '- '}}{{transaction.amount}} INR</span>
+        </div>
+    </summary>
+    <div>
+        <dl>
+            <div>
+                <dt>Time</dt>
+                <dd>{{transaction.date | date: "medium"}}</dd>
+            </div>
+
+            <div>
+                <dt>Type</dt>
+                <dd>{{transaction.type}}</dd>
+            </div>
+
+            <div>
+                <dt>Transaction ID</dt>
+                <dd>{{transaction.transactionId}}</dd>
+            </div>
+            <div>
+                <dt>Description</dt>
+                <dd>{{transaction.description}}</dd>
+            </div>
+            <div class="action-container">
+                <dt class="title">Actions</dt>
+                <dd>
+                    <div class="actions">
+                        <span (click)="handleOnEdit()">Edit</span>
+                        <span (click)="handleOnDelete()">Delete</span>
+                    </div>
+                </dd>
+            </div>
+        </dl>
+    </div>
+</details>

@@ -1,0 +1,29 @@
+span{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 10px;
+    background-color: #f3e1e1;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.25em;
+
+    svg {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+}
+
+span:last-child {
+    font-weight: 700;
+    margin-left: auto;
+}
+
+.expenses-bg {
+    background-color: #f2dcbb;
+}
+
+.income-bg {
+    background-color: #e0ece4;
+}

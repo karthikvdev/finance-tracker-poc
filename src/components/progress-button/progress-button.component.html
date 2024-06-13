@@ -1,0 +1,6 @@
+<button class="progress-btn" [type]="type"
+    [ngClass]="{'disabled-button': isDisabled, '':!isDisabled,'loading':isLoading, 'filled':varient === 'filled' , 'outlined':varient === 'outlined'}"
+    [disabled]="isDisabled || isLoading" (click)="onClick()">
+    {{isLoading ? (loadingBtnName || "Processing") : (btnName || "Yes, continue")}}
+    <mat-spinner class="loader" *ngIf="isLoading" [diameter]="20"></mat-spinner>
+</button>

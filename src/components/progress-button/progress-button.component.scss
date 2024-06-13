@@ -1,0 +1,62 @@
+.progress-btn {
+    align-items: center;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    justify-content: center;
+    max-width: 100%;
+    padding: 6px 16px;
+    position: relative;
+    transition: all 0.2s ease;
+    background-color: #002379;
+    color: #fff;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    height: 100%;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.outlined {
+    background-color: #fff;
+    border: 1px solid #002379;
+    color: #002379;
+    font-weight: 600;
+    box-shadow: none;
+
+    .loader {
+        margin-left: 10px;
+
+        ::ng-deep circle {
+            stroke: #002379 !important;
+        }
+    }
+}
+
+.loading {
+    justify-content: space-between;
+}
+
+.disabled-button {
+    background-color: #9d9d9d;
+    cursor: not-allowed;
+}
+
+.icon {
+    height: 20px !important;
+    width: 20px !important;
+    margin: 0 7px;
+
+    svg {
+        fill: #fff;
+    }
+}
+
+.loader {
+    margin-left: 10px;
+
+    ::ng-deep circle {
+        stroke: #fff !important;
+    }
+}
