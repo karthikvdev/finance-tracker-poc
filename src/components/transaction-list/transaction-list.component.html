@@ -5,13 +5,12 @@
         <div class="add-transaction">
             <div class="transction-details">
                 <div>
-                    <b>Total Expenditure: </b> <span
+                    <b>Expenditure: </b> <span
                         [ngClass]="{'income': transactionInfo.total > 0, 'expenses': transactionInfo.total < 0} ">
-                        <ng-container *ngIf="transactionInfo.total > 0">+</ng-container>
                         {{transactionInfo.total || 0 }} INR </span>
                 </div>
                 <div>
-                    <b>Total Income: </b> <span class=" income">{{ transactionInfo.income || 0 }} INR</span>
+                    <b>Total Incomes: </b> <span class=" income">{{ transactionInfo.income || 0 }} INR</span>
                 </div>
                 <div>
                     <b>Total Expenses: </b> <span class="expenses">{{ transactionInfo.expenses || 0 }} INR</span>
@@ -20,8 +19,11 @@
             <app-progress-button btnName="Add Transaction" (btnClick)="handleOnAddTransaction()"></app-progress-button>
         </div>
         <div class="transaction-list-container">
-            <app-transaction-card *ngFor="let transaction of transactions"
-                [transaction]="transaction"></app-transaction-card>
+            <ng-container *ngIf="transactions?.length">
+                <app-transaction-card *ngFor="let transaction of transactions"
+                    [transaction]="transaction"></app-transaction-card>
+            </ng-container>
+            <div *ngIf="!transactions?.length" class="no-transactions">No transaction found, add it !</div>
         </div>
     </section>
 </div>
